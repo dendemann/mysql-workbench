@@ -262,6 +262,7 @@
     <ClCompile Include="tests\grt_test_helpers.cpp" />
     <ClCompile Include="tests\internal\wb.mysql.validation\wbmodulevalidationmysql_specs.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release_OSS|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="tests\library\base\commandlineparser_specs.cpp" />
     <ClCompile Include="tests\library\base\config_file_specs.cpp" />
@@ -305,7 +306,9 @@
     <ClCompile Include="tests\library\grt\value_specs.cpp" />
     <ClCompile Include="tests\library\mtemplates\mtemplate_specs.cpp" />
     <ClCompile Include="tests\library\mysql.canvas\mysqlcanvas_specs.cpp" />
-    <ClCompile Include="tests\library\parsers\mysql_parser_specs.cpp" />
+    <ClCompile Include="tests\library\parsers\mysql_parser_specs.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </ClCompile>
     <ClCompile Include="tests\library\sql.parser\sqlparser_specs.cpp" />
     <ClCompile Include="tests\model_mockup.cpp" />
     <ClCompile Include="tests\modules\db.mysql.parser\mysql_parser_module_specs.cpp" />
