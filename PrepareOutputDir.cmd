@@ -126,9 +126,9 @@ rem Python executable needed by MSI Custom Action (to precompile Python files) a
 rem xcopy /i /s /y /d %EXT_BIN_DIR%\python*.exe %TARGET_DIR%\.
 if %2 == Debug ( set DEBUG_PREFIX=_d)
 if not %2 == Debug ( set EXCLUDE_CMD=/xf *_d.* )
-robocopy %PYTHON_DIR% %TARGET_DIR% python27%DEBUG_PREFIX%.dll %EXCLUDE_CMD%
-robocopy %PYTHON_DIR% %TARGET_DIR% python%DEBUG_PREFIX%.exe %EXCLUDE_CMD%
-robocopy %PYTHON_DIR% %TARGET_DIR%\python\site-packages pyodbc%DEBUG_PREFIX%.pyd %EXCLUDE_CMD%
+robocopy %PYTHON_DIR% %TARGET_DIR% python27*.dll %EXCLUDE_CMD%
+robocopy %PYTHON_DIR% %TARGET_DIR% python*.exe %EXCLUDE_CMD%
+robocopy %PYTHON_DIR% %TARGET_DIR%\python\site-packages pyodbc*.pyd %EXCLUDE_CMD%
 
 rem =========== Python ============================
 
@@ -153,9 +153,9 @@ xcopy /i /s /y /d %PYTHON_COMMON_DIR%\xml %TARGET_DIR%\python\lib\xml 1> nul 2> 
 xcopy /i /s /y /d %PYTHON_COMMON_DIR%\importlib %TARGET_DIR%\python\lib\importlib 1> nul 2> nul
 
 rem xcopy /i /y /d %PYTHON_DLLS_DIR%\*.pyd %TARGET_DIR%\python\DLLs 1> nul 2> nul
-robocopy %PYTHON_DLLS_DIR% %TARGET_DIR%\python\DLLs *%DEBUG_PREFIX%.pyd %EXCLUDE_CMD% _ctypes_test*.pyd
-robocopy %PYTHON_DLLS_DIR% %TARGET_DIR%\python\DLLs *%DEBUG_PREFIX%.pyd %EXCLUDE_CMD% _ctypes_test*.pyd
-robocopy %PYTHON_DIR%\ %TARGET_DIR%\python\DLLs *sqlite3*%DEBUG_PREFIX%.dll %EXCLUDE_CMD%
+robocopy %PYTHON_DLLS_DIR% %TARGET_DIR%\python\DLLs *.pyd %EXCLUDE_CMD% _ctypes_test*.pyd
+robocopy %PYTHON_DLLS_DIR% %TARGET_DIR%\python\DLLs *.pyd %EXCLUDE_CMD% _ctypes_test*.pyd
+robocopy %PYTHON_DIR%\ %TARGET_DIR%\python\DLLs *sqlite3*.dll %EXCLUDE_CMD%
 
 rem site packages that are release type independent
 rem xcopy /i /s /y /d %PYTHON_COMMON_DIR%\site-packages\paramiko %TARGET_DIR%\python\site-packages\paramiko 1> nul 2> nul
@@ -217,6 +217,9 @@ xcopy /i /s /y /d %EXT_LIB_DIR%\*.exe %TARGET_DIR%\. 1> nul 2> nul
 
 echo * ssh library ...
 xcopy /i /s /y /d %EXT_LIB_DIR%\ssh.dll %TARGET_DIR%\.
+
+echo * HTML Renderer library ...
+xcopy /i /s /y /d %EXT_LIB_DIR%\HTMLRenderer.dll %TARGET_DIR%\.
 
 echo * Templates
 if not exist %TARGET_DIR%\modules\data\sqlide mkdir %TARGET_DIR%\modules\data\sqlide
