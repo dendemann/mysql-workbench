@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|x64">
@@ -271,10 +271,23 @@
       <Project>{28fcb4e3-8baa-42f2-b2c6-247d9d0745b1}</Project>
     </ProjectReference>
   </ItemGroup>
+  <Choose> 
+    <When Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+      <ItemGroup>
+        <Reference Include="HtmlRenderer">
+          <HintPath>$(WB_3DPARTY_PATH)\debug\lib\HTMLRenderer.dll</HintPath>
+        </Reference>
+      </ItemGroup>
+    </When>
+    <Otherwise>
+      <ItemGroup>
+        <Reference Include="HtmlRenderer">
+          <HintPath>$(WB_3DPARTY_PATH)\lib\HTMLRenderer.dll</HintPath>
+        </Reference>
+      </ItemGroup> 
+    </Otherwise>
+  </Choose>     
   <ItemGroup>
-    <Reference Include="HtmlRenderer">
-      <HintPath>$(WB_3DPARTY_PATH)\lib\HtmlRenderer.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
