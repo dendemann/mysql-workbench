@@ -132,7 +132,7 @@
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>advapi32.lib;glib-2.0.lib;mysqlcppconnlib</AdditionalDependencies>
+      <AdditionalDependencies>advapi32.lib;glib-2.0.lib;mysqlcppconn.lib</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release_OSS|x64'">

@@ -81,7 +81,7 @@ zstd:x64-windows               1.4.0-1
 
 ## Additional dependencies:
 
-The `WB_3DPARTY_PATH` environemnt variable needs to point to a directory path containing the following structure:
+The `WB_3DPARTY_PATH` environment variable needs to point to a directory path containing the following structure:
 
 ```
 +---bin
